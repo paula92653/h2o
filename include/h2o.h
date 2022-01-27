@@ -1352,6 +1352,8 @@ h2o_hostconf_t *h2o_config_register_host(h2o_globalconf_t *config, h2o_iovec_t h
  * * configuration path does not end with a `/`, and the request path begins with the configuration path followed by a `/`
  */
 h2o_pathconf_t *h2o_config_register_path(h2o_hostconf_t *hostconf, const char *path, int flags);
+
+h2o_pathconf_t *h2o_config_register_path_sorted(h2o_hostconf_t *hostconf, const char *path, int flags);
 /**
  * registers an extra status handler
  */

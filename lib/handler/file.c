@@ -934,13 +934,13 @@ static int specific_handler_on_req(h2o_handler_t *_self, h2o_req_t *req)
     /* open file (or send error or return -1) */
     if ((generator = create_generator(req, self->real_path.base, self->real_path.len, &is_dir, self->flags)) == NULL) {
         if (is_dir) {
-            h2o_send_error_403(req, "Access Forbidden", "access forbidden", 0);
+            h2o_send_error_403(req, "Access Forbidden 1", "access forbidden", 0);
         } else if (errno == ENOENT) {
             return -1;
         } else if (errno == ENFILE || errno == EMFILE) {
             h2o_send_error_503(req, "Service Unavailable", "please try again later", 0);
         } else {
-            h2o_send_error_403(req, "Access Forbidden", "access forbidden", 0);
+            h2o_send_error_403(req, "Access Forbidden 2", "access forbidden", 0);
         }
         return 0;
     }
