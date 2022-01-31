@@ -244,9 +244,8 @@ h2o_pathconf_t *h2o_config_register_path_sorted(h2o_hostconf_t *hostconf, const 
         dst_pathconf->handlers.entries = hostconf->paths.entries[i-1].handlers.entries;
 
         dst_pathconf->global = hostconf->paths.entries[i-1].global;
-
         dst_pathconf->path = h2o_strdup(NULL, hostconf->paths.entries[i-1].path.base, SIZE_MAX);
-
+        free(hostconf->paths.entries[i-1].path.base);
         dst_pathconf->mimemap = hostconf->paths.entries[i-1].mimemap;
         dst_pathconf->env = hostconf->paths.entries[i-1].env;
         dst_pathconf->error_log = hostconf->paths.entries[i-1].error_log;
